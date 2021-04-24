@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Home.css";
-class Home extends Component {
+export default class Home extends Component {
   render() {
     const Anchor = (props) => {
       return <a {...props}>{props.children}</a>;
@@ -29,4 +29,4 @@ class Home extends Component {
     );
   }
 }
-export default Home;
+

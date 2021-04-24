@@ -1,13 +1,17 @@
-import logo from '../shared/images/logo.svg';
-import './App.css';
-import Home from './Home/Home';
+import logo from "../shared/images/logo.svg";
+import "./App.css";
+import Home from "./Home/Home";
+import Header from "../shared/components/layout/Header";
+import Content from "../shared/components/layout/Content";
+import Footer from "../shared/components/layout/Footer";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <Header title="Hello Honey"></Header>
+      <Content>
         <Home></Home>
-      </header>
+      </Content>
+      <Footer></Footer>
     </div>
   );
 }
