@@ -1,6 +1,19 @@
 import React, { Component } from "react";
 import "./Home.css";
 export default class Home extends Component {
+  constructor() {
+    super();
+    this.state = { name: "Rashif" };
+    
+  }
+  componentDidMount(){
+    // with this method, triggered once
+    setTimeout(() => {
+      this.setState({
+        name: 'QuasarFlash'
+      });
+    }, 1000);
+  }
   render() {
     const Anchor = (props) => {
       return <a {...props}>{props.children}</a>;
@@ -9,24 +22,16 @@ export default class Home extends Component {
       backgroundColor: "grey",
       border: "1px solid black",
     };
+    // setTimeout(() => {
+    //   // run infinitely every 1 sec, affects performance
+    //   this.setState({
+    //     name: 'QuasarFlash'
+    //   });
+    // }, 1000);
     return (
-      <div>
-        <h1>I'm Home, Hello Honey</h1>
-        <p>
-          Styling Time with React Look at this link here <br />
-          <Anchor href="https://github.com/QuasarFlash/">QuasarFlash</Anchor>
-        </p>
-        <button
-          style={{
-            backgroundColor: "grey",
-            border: "1px solid black",
-          }}
-        >
-          Click Me!
-        </button>
-        <button style={buttonStyle}>Click me First!</button>
+      <div className="Home">
+        <p> Hi, my name is {this.state.name}</p>
       </div>
     );
   }
 }
-
