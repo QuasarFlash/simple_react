@@ -1,23 +1,26 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import logo from "../../images/logo.svg";
 
-export default class Header extends Component {
-  // Proptypes
-  static propTypes = {
-    title: PropTypes.string.isRequired,
-    url: PropTypes.string,
-  };
-  render() {
-    const { title = "Hello Honey", url = "http://localhost:3000" } = this.props;
+const Header = props => {
+  
+    const { 
+      title = "Hello Honey", 
+      url = "http://localhost:3000" 
+    } = props;
 
     return (
       <header className="App-header">
-        <a href="{url}">
+        <a href={url}>
           <img src={logo} className="App-logo" alt="logo" />
         </a>
         <h1 className="App-title">{title}</h1>
       </header>
     );
-  }
-}
+};
+// Proptypes
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+  url: PropTypes.string,
+};
+export default Header;

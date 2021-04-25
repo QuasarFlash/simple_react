@@ -1,11 +1,8 @@
-import React, { Component } from 'react'
+import React from "react";
 
-export default class Footer extends Component {
-    render() {
-        return (
-            <div>
-                <footer>&copy; Honey {(new Date()).getFullYear()}</footer>
-            </div>
-        )
-    }
-}
+const Footer = () => (
+  <div>
+    <footer>&copy; Honey {new Date().getFullYear()}</footer>
+  </div>
+);
+export default Footer;
