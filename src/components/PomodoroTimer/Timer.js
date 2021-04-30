@@ -15,6 +15,7 @@ export default class Timer extends Component {
       shortBreak: 300,
       longBreak: 900,
     };
+    this.oldtime = this.times.defaultTime;
   }
   componentDidMount() {
     this.setDefaultTime();
@@ -28,6 +29,7 @@ export default class Timer extends Component {
     this.setState({
       alert: { type: "work", message: "Working" },
     });
+    this.oldtime = this.times.defaultTime;
     return this.setTime(this.times.defaultTime);
   };
 
@@ -38,6 +40,8 @@ export default class Timer extends Component {
         message: "Taking a Short Break!",
       },
     });
+    this.oldtime = this.times.shortBreak;
+
     return this.setTime(this.times.shortBreak);
   };
   setTimeForLongBreak = () => {
@@ -47,6 +51,8 @@ export default class Timer extends Component {
         message: "Taking a Long Break!",
       },
     });
+    this.oldtime = this.times.longBreak;
+
     return this.setTime(this.times.longBreak);
   };
   setTime = (newTime) => {
@@ -76,10 +82,16 @@ export default class Timer extends Component {
     const s = Math.floor((seconds % 3600) % 60);
     return `${m < 10 ? "0" : ""}${m}:${s < 10 ? "0" : ""}${s}`;
   }
-  playTimer = () => {};
-  pauseTimer = () => {};
-  resetTimer = () => {};
-
+  playTimer = () => {
+    this.restartInterval();
+  };
+  pauseTimer = () => {
+    clearInterval(this.interval);
+  };
+  resetTimer = () => {
+    this.setTime(this.oldtime);
+    this.restartInterval();
+  };
 
   render() {
     const {
