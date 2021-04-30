@@ -6,6 +6,6 @@ const Content = props => {
   return <main>{children}</main>;
 };
 Content.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.any.isRequired,
 };
 export default Content;
