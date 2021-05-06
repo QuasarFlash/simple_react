@@ -10,7 +10,7 @@ import Coins from "./Coins/Coins";
 import Notes from "./Notes/Notes";
 import Chart from "./Chart/Chart";
 import Animation from "./Animation/Animation";
-
+import Numbers from "./Numbers/Numbers";
 // Fake data
 import { notes1, notes2 } from "./Notes/data";
 import { Component } from "react";
@@ -65,6 +65,7 @@ class App extends Component {
             </p>
           </Chart>
           <Animation></Animation>
+          <Numbers></Numbers>
         </Content>
         <Footer></Footer>
       </div>

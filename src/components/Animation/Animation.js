@@ -8,11 +8,14 @@ export default class Animation extends Component {
       show: false,
     };
   }
+  componentDidUpdate(prevProps, prevState) {
+    console.log("animation updated");
+  }
   getSnapshotBeforeUpdate = (newProps, newState) => {
     if (!newState.show) {
-      document.getElementById("fade").style = "opacity: 1;";
+      return document.getElementById("fade").style = "opacity: 1;";
     } else {
-      document.getElementById("fade").style = "opacity: 0;";
+      return document.getElementById("fade").style = "opacity: 0;";
     }
   };
   toggleCollapse = () => {
