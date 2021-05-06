@@ -9,6 +9,8 @@ import Timer from "./PomodoroTimer/Timer";
 import Coins from "./Coins/Coins";
 import Notes from "./Notes/Notes";
 import Chart from "./Chart/Chart";
+import Animation from "./Animation/Animation";
+
 // Fake data
 import { notes1, notes2 } from "./Notes/data";
 import { Component } from "react";
@@ -62,6 +64,7 @@ class App extends Component {
               <button onClick={this.setLineChart}>Line</button>
             </p>
           </Chart>
+          <Animation></Animation>
         </Content>
         <Footer></Footer>
       </div>
