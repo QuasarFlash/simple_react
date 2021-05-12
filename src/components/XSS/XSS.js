@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./XSS.css";
+import serialize from 'serialize-javascript';
 // content from service plus XSS attacks
 const response = [
   {
@@ -23,7 +24,14 @@ const response = [
 ];
 
 //injected into DOM
-const initialState = JSON.stringify(response);
+const initialState = serialize(response);
+// const initialState = JSON.stringify(response);
+
+// serialize is used to encode the contents of object
+// because JSON.stringify doesn't encode the HTML tags
+// exposed HTML is a secuirty issue 
+console.log(initialState);
+
 
 // Used to remove XSS attasks
 const removeXSSAttacks = html => {
