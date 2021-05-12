@@ -25,6 +25,19 @@ const response = [
 //injected into DOM
 const initialState = JSON.stringify(response);
 
+// Used to remove XSS attasks
+const removeXSSAttacks = html => {
+  const SCRIPT_REGEX = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
+  // Removing the <script> tags
+  while (SCRIPT_REGEX.test(html)) {
+  html = html.replace(SCRIPT_REGEX, '');
+  }
+  // Removing all events from tags...
+  html = html.replace(/ on\w+="[^"]*"/g, '');
+  return {
+  __html: html
+  }
+  };
 export default class XSS extends Component {
   render() {
     //parse json string to object
@@ -39,7 +52,7 @@ export default class XSS extends Component {
             <p>
               <strong>Insecure Code:</strong>
             </p>
-            <p dangerouslySetInnerHTML={{ __html: post.content }} />
+            <p dangerouslySetInnerHTML={ removeXSSAttacks(post.content)} />
           </div>
         ))}
       </div>
