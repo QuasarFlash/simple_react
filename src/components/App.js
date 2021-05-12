@@ -11,6 +11,7 @@ import Notes from "./Notes/Notes";
 import Chart from "./Chart/Chart";
 import Animation from "./Animation/Animation";
 import Numbers from "./Numbers/Numbers";
+import XSS from "./XSS/XSS";
 // Fake data
 import { notes1, notes2 } from "./Notes/data";
 import { Component } from "react";
@@ -66,6 +67,7 @@ class App extends Component {
           </Chart>
           <Animation></Animation>
           <Numbers></Numbers>
+          <XSS></XSS>
         </Content>
         <Footer></Footer>
       </div>
