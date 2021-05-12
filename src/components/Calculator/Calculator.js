@@ -14,24 +14,29 @@ export default class Calculattor extends Component {
     // Binding methods so the error:
     // TypeError: Cannot read property 'setState' of undefined
     // Goes away
-    this.handleOnChange = this.handleOnChange.bind(this);
-    this.handleResult = this.handleResult.bind(this);
-  }
 
-  handleOnChange(e) {
+    // this.handleOnChange = this.handleOnChange.bind(this);
+    // this.handleResult = this.handleResult.bind(this);
+
+    // Convert handleOnChange and handleResult to
+    // arrow function to automatically bind methods
+    // above can then be removed
+  }
+  // Convert to arrow function to automatically bind methods
+  handleOnChange = (e) => {
     const {
       target: { value, name },
     } = e;
     this.setState({
       [name]: Number(value),
     });
-  }
+  };
 
-  handleResult(e) {
+  handleResult = (e) => {
     this.setState({
       result: this.state.number1 + this.state.number2,
     });
-  }
+  };
 
   render() {
     return (
